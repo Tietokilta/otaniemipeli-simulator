@@ -1,0 +1,61 @@
+5 normal
+ostari
+6 normal
+pjk
+3 normal
+vuori
+1 normal
+kemma
+3 normal
+alvari
+2 normal
+olohuone
+tuas
+prodeko
+aski
+ttalo
+1 normal
+kone
+sähkölaitos
+1 excu_tre >tampere
+fyssa
+1 normal
+ik
+1 normal
+sik
+2 normal
+yths
+3 normal
+kappeli
+1 normal #helsinki
+smökki
+1 normal
+uimahalli
+rantsu
+gorsu
+3a
+oubs
+ok20
+täffä
+1 normal
+urheilukenttä
+2 normal
+jälkipeli
+1 normal
+keltsu
+3 normal
+tik
+2 normal
+end
+
+1 normal #tampere
+mikontalo
+1 normal
+kultainen_apina
+1 normal
+tite
+teekkarisauna
+1 normal
+tupsula
+3 normal
+etuparkki >helsinki

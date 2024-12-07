@@ -1,0 +1,39 @@
+3a beer 1 refill
+alvari slime 1 refill
+aski as-huikka 1 refill
+excu_tre bus refill
+etuparkki bus refill
+fyssa slime 1 refill
+gorsu beer 1 refill
+jälkipeli beer 1 refill
+kappeli wine 1 refill
+keltsu beer 3 slime 1 refill
+kemma slime 1 refill
+kone beer 1 refill
+kultainen_apina beer 1 refill
+mikontalo wine 1 refill
+ok20 beer 1 refill
+olohuone tequila 1 refill
+ostari beer 1 refill
+oubs fernet-branca 1 refill
+pjk beer 1 refill
+prodeko thunder 1 refill
+ik beer newroll_min() refill
+rantsu beer 1 refill
+sik slime 1 refill
+smökki slime 1 refill
+sähkölaitos energy 1 refill
+tite coke_fort 1 refill
+teekkarisauna beer 3 slime 1 refill
+tuas slime 1 refill
+tupsula balju 1 refill
+täffä slime 1 refill
+ttalo slime 1 refill
+uimahalli vichy 1 refill
+urheilukenttä beer 3
+vuori slime 1 refill
+yths a12-denat 1 refill
+tik beer nvisits refill
+normal beer 1
+start
+end
