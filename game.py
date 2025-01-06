@@ -10,7 +10,13 @@ def d6():
 
 
 def newroll_min():
-    return min(d6(), d6())
+    roll1 = d6()
+    roll2 = d6()
+
+    roll = min(roll1, roll2)
+    is_double = roll1 == roll2
+
+    return roll, is_double
 
 
 @dataclass
@@ -140,7 +146,7 @@ def game(nplayers: int):
         rounds += 1
         for p in range(nplayers):
             turns += 1
-            move = newroll_min()
+            move, is_double = newroll_min()
             pos = players[p]
             if pos < endpos and pos + move > endpos:
                 extra = pos + move - endpos
