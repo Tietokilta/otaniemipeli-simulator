@@ -1,4 +1,5 @@
 from random import randint
+import threading
 
 from matplotlib import pyplot as p
 import numpy as np
@@ -19,13 +20,16 @@ nvisits = [[0 for _ in squares] for _ in nteams_opts]
 nsqdrinks = [[0 for _ in squares] for _ in nteams_opts]
 nsqportions = [[0 for _ in squares] for _ in nteams_opts]
 
+threads = []
 
 for i in range(len(nteams_opts)):
     nteams = nteams_opts[i]
     for j in range(ngames):
         res = game(nteams)
         if j & 31 == 31:
-            print(f"\r{nteams} teams {j} games     ", end="", flush=True)
+            print(
+                f"\r{nteams} teams {j} games     ",
+                end="", flush=True)
         ndrinksavg[i].append(res.avg_drinks)
         ndrinkstop[i].append(res.top_drinks)
         nportionsavg[i].append(res.avg_portions)
@@ -34,9 +38,11 @@ for i in range(len(nteams_opts)):
         nturns[i].append(res.turns)
         for k, visits in enumerate(res.visits):
             nvisits[i][k] += visits
-        for k, sqdrinks in enumerate(res.sq_drinks):
+        for k, sqdrinks in enumerate(
+                res.sq_drinks):
             nsqdrinks[i][k] += sqdrinks
-        for k, sqportions in enumerate(res.sq_portions):
+        for k, sqportions in enumerate(
+                res.sq_portions):
             nsqportions[i][k] += sqportions
 
 print()

@@ -18,7 +18,7 @@ ostari beer 1 refill
 oubs fernet-branca 1 refill
 pjk beer 1 refill
 prodeko thunder 1 refill
-ik beer newroll_min() refill
+ik beer drinkroll_min() refill
 rantsu beer 1 refill
 sik slime 1 refill
 smökki slime 1 refill

@@ -3,13 +3,20 @@ from random import randint
 from collections.abc import Callable
 from functools import cached_property
 from statistics import mean
+import sys
 
 
 def d6():
     return randint(1, 6)
 
 
-def newroll_min():
+def drinkroll_min():
+    return min(d6(), d6())
+
+def throw_negative():
+    return d6()
+
+def newroll_min() -> (int, bool):
     roll1 = d6()
     roll2 = d6()
 
@@ -58,8 +65,8 @@ class Square:
 
 
 sqtypes: dict[str, Square] = {}
-
-for l in open("places.txt"):
+place_file = sys.argv[1]
+for l in open(place_file):
     l = l.strip()
     if not l or l.startswith("//"):
         continue
@@ -92,8 +99,8 @@ for l in open("places.txt"):
 
 squares: list[Square] = []
 sqnames: dict[str, int] = {}
-
-for l in open("board.txt"):
+board_file = sys.argv[2]
+for l in open(board_file):
     l = l.strip()
     if not l or l.startswith("//"):
         continue
@@ -159,7 +166,19 @@ def game(nplayers: int):
             visits[pos] += 1
             sq = squares[pos]
             if not drunk[pos]:
+                if sq.name == "keto":
+                    pos -= len(sq.drinks(nvisits=visits[pos]))
+                    players[p] = pos
+                    visits[pos] += 1
+                    sq = squares[pos]
                 to_drink: list[Drink] = sq.drinks(nvisits=visits[pos])
+                if is_double:
+                    now_drinks = len(to_drink)
+                    now_portions = sum(d.ethanol for d in to_drink) / PORTION
+                    drinks[p] += now_drinks
+                    portions[p] += now_portions
+                    sq_drinks[pos] += now_drinks
+                    sq_portions[pos] += now_portions
                 now_drinks = len(to_drink)
                 now_portions = sum(d.ethanol for d in to_drink) / PORTION
                 drinks[p] += now_drinks

@@ -1,0 +1,76 @@
+4 normal
+bloc
+1 normal
+jokeri >maarinsolmu
+alvari
+4 normal
+olohuone
+database
+1 normal
+prodeko
+sik #sik
+as
+tuas
+t-talo
+2 normal
+defa
+sähkölaitos
+2 normal
+tik
+ik
+3 normal
+ossinlampi
+1 normal
+kvarkki
+excu_tre >tampere
+3 normal
+yths
+2 normal
+varasto
+taikametsä
+kappeli
+1 normal
+rantsu
+gorsu
+smökki #helsinki
+ossinsauna
+1 normal
+ok20
+jmt1
+jmt3
+otaranta
+1 normal
+urheilukenttä
+täffä
+dipoli
+2 normal
+x-burger
+otapas
+keto
+2 normal
+fyssa
+inkubio
+kone
+2 normal
+end
+
+maarinsolmu #maarinsolmu
+1 normal
+oikeustalo
+3 normal
+lintutorni
+1 normal
+suo
+1 normal >sik
+
+1 normal #tampere
+mikontalo
+1 normal
+kultainen_apina
+1 normal
+tite
+teekkarisauna
+1 normal
+tupsula
+3 normal
+etuparkki >helsinki
