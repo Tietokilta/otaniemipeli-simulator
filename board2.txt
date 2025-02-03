@@ -46,7 +46,7 @@ otaranta
 urheilukenttä
 täffä
 dipoli
-2 normal
+1 normal
 x-burger
 otapas
 // keto:

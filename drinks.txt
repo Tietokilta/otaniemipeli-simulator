@@ -6,7 +6,7 @@ slime 35.0%,0.04,f
 coke 0.0%,0.33,t
 coke_fort 40.0%,0.04,f,0.0%,0.29,t
 cider 4.5%,0.33,t
-wine 15.0%,0.33,f
+wine 15.0%,0.16,f
 tequila 40.0%,0.04,f
 fernet-branca 39.0%,0.04,f
 thunder 12.0%,0.33,f
@@ -21,7 +21,7 @@ vodka 40.0%,0.04,f
 swamp-water 5.5%,0.33,t,40.0%,0.04,f
 suohauta 38.0%,0.02,f,40.0%,0.02,f,38.0%,0.02,f
 jallu 38.0%,0.04,f
-trocadero 5.0%,0.33,t
+trocadero 38.0%,0.04,t
 absinthe 66.0%,0.04,f
 ykkonen 40.0%,0.04,f
 pöhkö 80.0%,0.02,f

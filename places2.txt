@@ -3,7 +3,7 @@ bloc slime 1 refill
 jokeri
 alvari slime 1 refill
 olohuone tequila 1 refill
-database
+database trocadero 1 refill
 prodeko thunder 1 refill
 sik kuulalaakeri 1 refill
 maarinsolmu slime 1 refill
@@ -28,13 +28,13 @@ taikametsä vodka 1 refill
 kappeli wine 1 refill
 rantsu beer 1 refill
 gorsu beer 1 refill
-smökki slime 1 beer 1 refill
+smökki slime 1 refill
 ossinsauna beer 1 refill
 ok20 beer 1 refill
 jmt1 fernet-branca 1 refill
 jmt3 beer 1 refill
 otaranta beer 1 refill
-urheilukenttä beer 3 refill
+urheilukenttä beer 3
 täffä slime 1 refill
 dipoli slime 1 refill
 x-burger slime 1 refill
