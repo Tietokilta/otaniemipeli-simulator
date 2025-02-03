@@ -20,7 +20,7 @@ tik beer nvisits refill
 ik beer drinkroll_min() refill
 ossinlampi swamp-water 1 refill
 kvarkki slime 1 refill
-excu_tre bus refill
+excu_tre bus 1 refill
 miinusmaa beer 1 refill
 yths a12-denat 1 refill
 varasto ykkonen refill
