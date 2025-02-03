@@ -23,7 +23,7 @@ kvarkki slime 1 refill
 excu_tre bus 1 refill
 miinusmaa beer 1 refill
 yths a12-denat 1 refill
-varasto ykkonen refill
+varasto ykkonen 1 refill
 taikametsä vodka 1 refill
 kappeli wine 1 refill
 rantsu beer 1 refill
