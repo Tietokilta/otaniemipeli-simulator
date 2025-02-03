@@ -16,7 +16,6 @@ t-talo #jokeritp4
 defa #jokeritp6
 1 normal
 sähkölaitos
-2 normal
 tik
 ik
 2 normal
@@ -24,9 +23,8 @@ ossinlampi
 1 normal
 kvarkki
 excu_tre >tampere
-1 normal
 miinusmaa
-1 normal
+3 normal
 yths
 2 normal
 varasto
