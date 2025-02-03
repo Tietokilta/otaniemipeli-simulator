@@ -4,7 +4,9 @@ from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
     from main import *
-
+    print("main imported")
+else:
+    raise ImportError("typing not imported")
 
 try:
     os.remove("fig1.pdf")
