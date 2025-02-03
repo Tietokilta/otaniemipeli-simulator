@@ -13,9 +13,6 @@ def d6():
 def drinkroll_min():
     return min(d6(), d6())
 
-def throw_negative():
-    return d6()
-
 def newroll_min() -> (int, bool):
     roll1 = d6()
     roll2 = d6()
@@ -45,12 +42,18 @@ for l in open("drinks.txt"):
         continue
     name, content = l.split(" ")
     bits = content.split(",")
+    alc_total = 0
+    vol_total = 0
     while bits:
         abv, vol, carb = bits[:3]
         bits = bits[3:]
         abv = float(abv.removesuffix("%"))
         vol = float(vol)
-        drinks[name] = Drink(abv, vol)
+        vol_total += vol
+        alc_total += abv * 0.01 * vol
+    vol = vol_total
+    abv = alc_total / vol_total if vol_total else 0.0
+    drinks[name] = Drink(abv, vol)
 
 
 PORTION = drinks["beer"].ethanol
@@ -155,43 +158,49 @@ def game(nplayers: int):
             turns += 1
             move, is_double = newroll_min()
             pos = players[p]
-            if pos < endpos and pos + move > endpos:
+            if pos < endpos and pos + move > endpos: # going past end square
                 extra = pos + move - endpos
                 pos = endpos - extra
-            elif pos + move >= len(squares):
+            elif pos + move >= len(squares): # leaving tampere
                 pos = len(squares) - 1
-            else:
+            else: # other moves
                 pos += move
-            players[p] = pos
-            visits[pos] += 1
-            sq = squares[pos]
-            if not drunk[pos]:
-                if sq.name == "keto":
-                    move2 = len(sq.drinks(nvisits=visits[pos]))
-                    pos -= move2
-                    players[p] = pos
-                    visits[pos] += 1
-                    sq = squares[pos]
-                to_drink: list[Drink] = sq.drinks(nvisits=visits[pos])
-                if is_double:
-                    now_drinks = len(to_drink)
-                    now_portions = sum(d.ethanol for d in to_drink) / PORTION
-                    drinks[p] += now_drinks
-                    portions[p] += now_portions
-                    sq_drinks[pos] += now_drinks
-                    sq_portions[pos] += now_portions
-                now_drinks = len(to_drink)
-                now_portions = sum(d.ethanol for d in to_drink) / PORTION
-                drinks[p] += now_drinks
-                portions[p] += now_portions
-                sq_drinks[pos] += now_drinks
-                sq_portions[pos] += now_portions
-                if not sq.refill:
-                    drunk[pos] = True
-            if sq.teleport:
-                pos = sqnames[sq.teleport]
+            final_destination = False
+            while not final_destination:
                 players[p] = pos
                 visits[pos] += 1
+                sq = squares[pos]
+                if not drunk[pos]:
+                    to_drink: list[Drink] = sq.drinks(nvisits=visits[pos])
+                    if is_double and sq.name != "varasto":
+                        to_drink += to_drink[:]
+                    now_drinks = len(to_drink)
+                    now_portions = sum(d.ethanol for d in to_drink) / PORTION
+                    if sq.name == "varasto":
+                        ykkos_count = 2 if is_double else 1
+                        drinker = p
+                        for _ in range(ykkos_count):
+                            while True:
+                                if d6() == 1:
+                                    drinks[p] += now_drinks
+                                    portions[p] += now_portions
+                                    break
+                                else:
+                                    drinker = (drinker + 1) % nplayers
+                    else:
+                        drinks[p] += now_drinks
+                        portions[p] += now_portions
+                        sq_drinks[pos] += now_drinks
+                        sq_portions[pos] += now_portions
+                    if not sq.refill:
+                        drunk[pos] = True
+                # teleporting
+                if sq.name == "keto":
+                    pos -= d6()
+                elif sq.teleport:
+                    pos = sqnames[sq.teleport]
+                else:
+                    final_destination = True
             if sq.name == "end":
                 done = True
                 break

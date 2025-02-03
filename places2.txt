@@ -10,6 +10,7 @@ maarinsolmu slime 1 refill
 oikeustalo absinthe 1 refill
 lintutorni jallu 1 refill
 suo suohauta 1 refill
+jokeri_tp_hack
 as as-huikka 1 refill
 tuas slime 1 refill
 t-talo slime 1 refill
@@ -38,7 +39,7 @@ täffä slime 1 refill
 dipoli slime 1 beer 1 refill
 x-burger slime 1 refill
 otapas slime 1 beer 1 refill
-keto none throw_negative() refill
+keto
 fyssa vodka 1 refill
 inkubio vodka 1 refill
 kone korjaussarja 1 refill

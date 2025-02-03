@@ -8,11 +8,12 @@ olohuone
 database
 1 normal
 prodeko
-sik #sik
-as
-tuas
-t-talo
-2 normal
+sik #jokeritp1
+as #jokeritp2
+tuas #jokeritp3
+t-talo #jokeritp4
+1 normal #jokeritp5
+1 normal #jokeritp6
 defa
 sähkölaitos
 2 normal
@@ -63,7 +64,13 @@ oikeustalo
 lintutorni
 1 normal
 suo
-1 normal >sik
+1 normal
+jokeri_tp_hack >jokeritp1
+jokeri_tp_hack >jokeritp2
+jokeri_tp_hack >jokeritp3
+jokeri_tp_hack >jokeritp4
+jokeri_tp_hack >jokeritp5
+jokeri_tp_hack >jokeritp6
 
 1 normal #tampere
 mikontalo
