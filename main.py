@@ -93,9 +93,10 @@ if __name__ == "__main__":
                 nportionstop[res[0]] += res[4]
                 nrounds[res[0]] += res[5]
                 nturns[res[0]] += res[6]
-                nvisits[res[0]] += res[7]
-                nsqdrinks[res[0]] += res[8]
-                nsqportions[res[0]] += res[9]
+                for s in range(len(squares)):
+                    nvisits[res[0]][s] += res[7][s]
+                    nsqdrinks[res[0]][s] += res[8][s]
+                    nsqportions[res[0]][s] += res[9][s]
         finally:
             pool.shutdown(True, cancel_futures=True)
             end = time.time()
