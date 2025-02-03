@@ -1,4 +1,4 @@
-4 normal
+3 normal
 bloc
 1 normal
 jokeri >maarinsolmu
@@ -13,14 +13,13 @@ as #jokeritp2
 tuas #jokeritp3
 t-talo #jokeritp4
 1 normal #jokeritp5
-1 normal #jokeritp6
-defa
-2 normal
+defa #jokeritp6
+1 normal
 sähkölaitos
 2 normal
 tik
 ik
-3 normal
+2 normal
 ossinlampi
 1 normal
 kvarkki
@@ -50,6 +49,7 @@ dipoli
 2 normal
 x-burger
 otapas
+// keto:
 keto
 2 normal
 inkubio

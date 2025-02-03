@@ -167,5 +167,6 @@ for i, nteams in enumerate(nteams_opts):
     ax.bar(x, y, bw, label=f"{nteams} teams")
 
 ax.set_xticks(np.arange(len(drinks)) + bw, list(drinks))
+ax.set_ylim(0, 20)
 
 p.show()

@@ -1,5 +1,5 @@
 from dataclasses import dataclass, field, replace
-from random import randint
+from random import randint, choice
 from collections.abc import Callable
 from functools import cached_property
 from statistics import mean
@@ -68,6 +68,12 @@ class Square:
     teleport: str | None = None
 
 
+def get_drink(name: str):
+    if "/" in name:
+        name = choice(name.split("/"))
+    return drinks[name]
+
+
 sqtypes: dict[str, Square] = {}
 place_file = sys.argv[1]
 for l in open(place_file):
@@ -85,9 +91,7 @@ for l in open(place_file):
                 will_refill = True
             case _:
                 drinkfuncs.append(
-                    eval(f"lambda drink: lambda nvisits: [drink] * {bits.pop(0)}")(
-                        drinks[bit]
-                    )
+                    eval(f"lambda nvisits: [get_drink({repr(bit)}) for _ in range({bits.pop(0)})]")
                 )
     sqtypes[name] = Square(
         name,

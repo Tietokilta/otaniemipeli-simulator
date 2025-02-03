@@ -24,4 +24,6 @@ jallu 38.0%,0.04,f
 trocadero 5.0%,0.33,t
 absinthe 66.0%,0.04,f
 ykkonen 40.0%,0.04,f
+pöhkö 80.0%,0.02,f
+apoptoosi 32.0%,0.02,f,20.0%,0.02,f
 none 0.0%,0,f

@@ -30,18 +30,18 @@ rantsu beer 1 refill
 gorsu beer 1 refill
 smökki slime 1 beer 1 refill
 ossinsauna beer 1 refill
-ok20 beer 1 slime 1 refill
+ok20 beer 1 refill
 jmt1 fernet-branca 1 refill
 jmt3 beer 1 refill
 otaranta beer 1 refill
 urheilukenttä beer 3 refill
 täffä slime 1 refill
-dipoli slime 1 beer 1 refill
+dipoli slime 1 refill
 x-burger slime 1 refill
-otapas slime 1 beer 1 refill
+otapas slime/beer 1 refill
 keto
-fyssa vodka 1 refill
-inkubio vodka 1 refill
+fyssa pöhkö 1 refill
+inkubio apoptoosi 1 refill
 kone korjaussarja 1 refill
 normal beer 1
 tite coke_fort 1 refill
