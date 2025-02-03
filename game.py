@@ -25,6 +25,7 @@ def newroll_min() -> (int, bool):
 
 @dataclass
 class Drink:
+    name: str
     abv: float
     vol: float
 
@@ -53,7 +54,7 @@ for l in open("drinks.txt"):
         alc_total += abv * 0.01 * vol
     vol = vol_total
     abv = alc_total / vol_total if vol_total else 0.0
-    drinks[name] = Drink(abv, vol)
+    drinks[name] = Drink(name, abv, vol)
 
 
 PORTION = drinks["beer"].ethanol
@@ -139,6 +140,7 @@ class Result:
     visits: list[int]
     sq_drinks: list[int]
     sq_portions: list[float]
+    drinks_by_type: dict[str, int]
 
 
 def game(nplayers: int):
@@ -147,8 +149,9 @@ def game(nplayers: int):
     sq_drinks = [0] * len(squares)
     sq_portions = [0] * len(squares)
     players = [0] * nplayers
-    drinks = [0] * nplayers
-    portions = [0.0] * nplayers
+    tot_drinks = [0] * nplayers
+    tot_portions = [0.0] * nplayers
+    tot_types = {d: 0 for d in drinks}
     rounds = 0
     turns = 0
     done = False
@@ -176,20 +179,22 @@ def game(nplayers: int):
                         to_drink += to_drink[:]
                     now_drinks = len(to_drink)
                     now_portions = sum(d.ethanol for d in to_drink) / PORTION
+                    for d in to_drink:
+                        tot_types[d.name] += 1
                     if sq.name == "varasto":
                         ykkos_count = 2 if is_double else 1
                         drinker = p
                         for _ in range(ykkos_count):
                             while True:
                                 if d6() == 1:
-                                    drinks[p] += now_drinks
-                                    portions[p] += now_portions
+                                    tot_drinks[p] += now_drinks
+                                    tot_portions[p] += now_portions
                                     break
                                 else:
                                     drinker = (drinker + 1) % nplayers
                     else:
-                        drinks[p] += now_drinks
-                        portions[p] += now_portions
+                        tot_drinks[p] += now_drinks
+                        tot_portions[p] += now_portions
                         sq_drinks[pos] += now_drinks
                         sq_portions[pos] += now_portions
                     if not sq.refill:
@@ -207,11 +212,12 @@ def game(nplayers: int):
     return Result(
         rounds,
         turns,
-        max(portions),
-        mean(portions),
-        max(drinks),
-        mean(drinks),
+        max(tot_portions),
+        mean(tot_portions),
+        max(tot_drinks),
+        mean(tot_drinks),
         visits,
         sq_drinks,
         sq_portions,
+        tot_types,
     )

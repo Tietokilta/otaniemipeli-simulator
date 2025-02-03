@@ -16,7 +16,7 @@ for i, nteams in enumerate(nteams_opts):
     xmax = max(xmax, x[imax + 1])
     x = (x[1:] + x[:-1]) / 2
     p.plot(x, y, label=f"{nteams} teams")
-p.xlim(0, xmax)
+p.xlim(10, 45)
 p.grid(True)
 p.legend()
 
@@ -29,7 +29,7 @@ for i, nteams in enumerate(nteams_opts):
     xmax = max(xmax, x[imax + 1])
     x = (x[1:] + x[:-1]) / 2
     p.plot(x, y, label=f"{nteams} teams")
-p.xlim(0, xmax)
+p.xlim(10, 55)
 p.grid(True)
 p.legend()
 
@@ -42,7 +42,7 @@ for i, nteams in enumerate(nteams_opts):
     xmax = max(xmax, x[imax + 1])
     x = (x[1:] + x[:-1]) / 2
     p.plot(x, y, label=f"{nteams} teams")
-p.xlim(0, xmax)
+p.xlim(10, 45)
 p.grid(True)
 p.legend()
 
@@ -55,7 +55,7 @@ for i, nteams in enumerate(nteams_opts):
     imax = np.nonzero(y > ngames * THRESHOLD)[0][-1]
     xmax = max(xmax, x[imax + 1])
     p.plot(x, y, label=f"{nteams} teams")
-p.xlim(0, xmax)
+p.xlim(10, 55)
 p.grid(True)
 p.legend()
 
@@ -68,7 +68,7 @@ for i, nteams in enumerate(nteams_opts):
     imax = np.nonzero(y > ngames * THRESHOLD)[0][-1]
     xmax = max(xmax, x[imax + 1])
     p.plot(x, y, label=f"{nteams} teams")
-p.xlim(0, xmax)
+p.xlim(15, 50)
 p.grid(True)
 p.legend()
 
@@ -81,7 +81,7 @@ for i, nteams in enumerate(nteams_opts):
     imax = np.nonzero(y > ngames * THRESHOLD)[0][-1]
     xmax = max(xmax, x[imax + 1])
     p.plot(x, y, label=f"{nteams} teams")
-p.xlim(0, xmax)
+p.xlim(60, 270)
 p.grid(True)
 p.legend()
 
@@ -132,4 +132,16 @@ for i, nteams in enumerate(nteams_opts):
 p.legend()
 
 p.subplots_adjust(left=0.05, right=0.95, bottom=0.05, top=0.95, wspace=0.1, hspace=0.3)
+p.show()
+
+fig, ax = p.subplots(layout="constrained")
+ax.set_title("Drinks by type " + sys.argv[1])
+
+bw = 1 / (1 + len(nteams_opts))
+for i, nteams in enumerate(nteams_opts):
+    x = np.arange(len(drinks)) + i * bw
+    y = [ndrinksbytype[i][d] / ngames / nteams for d in drinks]
+    ax.bar(x, y, bw, label=f"{nteams} teams")
+
+ax.set_xticks(np.arange(len(drinks)) + bw, list(drinks))
 p.show()

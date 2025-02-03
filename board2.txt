@@ -15,6 +15,7 @@ t-talo #jokeritp4
 1 normal #jokeritp5
 1 normal #jokeritp6
 defa
+2 normal
 sähkölaitos
 2 normal
 tik
@@ -51,8 +52,8 @@ x-burger
 otapas
 keto
 2 normal
-fyssa
 inkubio
+fyssa
 kone
 2 normal
 end

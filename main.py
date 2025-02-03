@@ -7,9 +7,9 @@ import time
 from matplotlib import pyplot as p
 import numpy as np
 
-from game import game, squares
+from game import game, squares, drinks
 
-nteams_opts = [1, 2, 4, 6, 8, 10, 12, 14, 16, 18, 100]
+nteams_opts = [4,5,6,7,8]
 ngames = 100000
 
 n = [[] for _ in nteams_opts]
@@ -22,6 +22,7 @@ nturns = [[] for _ in nteams_opts]
 nvisits = [[0 for _ in squares] for _ in nteams_opts]
 nsqdrinks = [[0 for _ in squares] for _ in nteams_opts]
 nsqportions = [[0 for _ in squares] for _ in nteams_opts]
+ndrinksbytype = [{d: 0 for d in drinks} for _ in nteams_opts]
 
 bsize = 128
 bmask = bsize - 1
@@ -36,6 +37,7 @@ def simulate(i: int, ngames: int):
     nvisits = [0 for _ in squares]
     nsqdrinks = [0 for _ in squares]
     nsqportions = [0 for _ in squares]
+    ndrinksbytype = {d: 0 for d in drinks}
 
     nteams = nteams_opts[i]
     for j in range(ngames):
@@ -53,12 +55,12 @@ def simulate(i: int, ngames: int):
         nturns.append(res.turns)
         for k, visits in enumerate(res.visits):
             nvisits[k] += visits
-        for k, sqdrinks in enumerate(
-                res.sq_drinks):
+        for k, sqdrinks in enumerate(res.sq_drinks):
             nsqdrinks[k] += sqdrinks
-        for k, sqportions in enumerate(
-                res.sq_portions):
+        for k, sqportions in enumerate(res.sq_portions):
             nsqportions[k] += sqportions
+        for d in drinks:
+            ndrinksbytype[d] += res.drinks_by_type[d]
     res = (
         i,
         ndrinksavg,
@@ -70,6 +72,7 @@ def simulate(i: int, ngames: int):
         nvisits,
         nsqdrinks,
         nsqportions,
+        ndrinksbytype,
     )
     return res
 
@@ -97,6 +100,8 @@ if __name__ == "__main__":
                     nvisits[res[0]][s] += res[7][s]
                     nsqdrinks[res[0]][s] += res[8][s]
                     nsqportions[res[0]][s] += res[9][s]
+                for d in drinks:
+                    ndrinksbytype[res[0]][d] += res[10][d]
         finally:
             pool.shutdown(True, cancel_futures=True)
             end = time.time()
@@ -113,6 +118,7 @@ if __name__ == "__main__":
             nvisits[res[0]] = res[7]
             nsqdrinks[res[0]] = res[8]
             nsqportions[res[0]] = res[9]
+            ndrinksbytype[res[0]] = res[10]
 
     print()
 
