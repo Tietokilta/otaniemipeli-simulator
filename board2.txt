@@ -53,7 +53,7 @@ keto
 inkubio
 fyssa
 kone
-2 normal
+3 normal
 end
 
 maarinsolmu #maarinsolmu
