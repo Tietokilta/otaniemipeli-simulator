@@ -18,4 +18,5 @@ bus 5.3%,0.33,t
 kuulalaakeri 40.0%,0.04,f
 korjaussarja 8.0%,0.33,f
 vodka 40.0%,0.04,f
+lampivesi 5.5%,0,33,t,40.0%,0.04,f
 none 0.0%,0,f

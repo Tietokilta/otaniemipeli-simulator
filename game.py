@@ -167,7 +167,8 @@ def game(nplayers: int):
             sq = squares[pos]
             if not drunk[pos]:
                 if sq.name == "keto":
-                    pos -= len(sq.drinks(nvisits=visits[pos]))
+                    move2 = len(sq.drinks(nvisits=visits[pos]))
+                    pos -= move2
                     players[p] = pos
                     visits[pos] += 1
                     sq = squares[pos]

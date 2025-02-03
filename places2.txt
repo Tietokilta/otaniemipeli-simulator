@@ -8,8 +8,8 @@ prodeko thunder 1 refill
 sik kuulalaakeri 1 refill
 maarinsolmu beer 1 refill
 oikeustalo vodka 1 refill
-lintutorni fernet-branca 1 refill
-suo vodka 1 refill
+lintutorni jallu 1 refill
+suo vodka 3 refill
 as as-huikka 1 refill
 tuas slime 1 refill
 t-talo slime 1 refill
@@ -26,10 +26,10 @@ taikametsä vodka 1 refill
 kappeli wine 1 refill
 rantsu beer 1 refill
 gorsu beer 1 refill
-smökki vodka 1 refill
+smökki slime 1 refill
 ossinsauna beer 1 refill
 ok20 beer 1 refill
-jmt1 vodka 1 refill
+jmt1 fernet-branca 1 refill
 jmt3 beer 1 refill
 otaranta beer 1 refill
 urheilukenttä beer 3 refill

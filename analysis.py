@@ -1,3 +1,4 @@
+import sys
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
@@ -7,7 +8,7 @@ if TYPE_CHECKING:
 THRESHOLD = 0.001
 
 p.subplot(3, 2, 1)
-p.title("Average portions per team")
+p.title("Average portions per team " + sys.argv[1])
 xmax = 0
 for i, nteams in enumerate(nteams_opts):
     y, x = np.histogram(nportionsavg[i], bins=50)
@@ -89,7 +90,7 @@ p.subplots_adjust(left=0.05, right=0.95, bottom=0.05, top=0.95, wspace=0.1, hspa
 p.show()
 
 p.subplot(3, 1, 1)
-p.title("Most visited squares")
+p.title("Most visited squares " + sys.argv[1])
 
 p.xticks(
     range(len(squares)), [sq.name for sq in squares], size="small", rotation="vertical"

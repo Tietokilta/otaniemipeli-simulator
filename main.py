@@ -1,12 +1,11 @@
 from random import randint
-import threading
 
 from matplotlib import pyplot as p
 import numpy as np
 
 from game import game, squares
 
-nteams_opts = [4, 5, 6, 7, 8]
+nteams_opts = [2, 4, 6, 8]
 ngames = 100000
 
 n = [[] for _ in nteams_opts]
