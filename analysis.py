@@ -24,11 +24,8 @@ p.figure(figsize=(20, 40))
 
 p.subplot(3, 2, 1)
 p.title("Average portions per team " + sys.argv[1])
-xmax = 0
 for i, nteams in enumerate(nteams_opts):
     y, x = np.histogram(nportionsavg[i], bins=50)
-    imax = np.nonzero(y > ngames * THRESHOLD)[0][-1]
-    xmax = max(xmax, x[imax + 1])
     x = (x[1:] + x[:-1]) / 2
     p.plot(x, y, label=f"{nteams} teams")
 p.xlim(10, 45)
@@ -37,11 +34,8 @@ p.legend()
 
 p.subplot(3, 2, 2)
 p.title("Portions for moral winner")
-xmax = 0
 for i, nteams in enumerate(nteams_opts):
     y, x = np.histogram(nportionstop[i], bins=50)
-    imax = np.nonzero(y > ngames * THRESHOLD)[0][-1]
-    xmax = max(xmax, x[imax + 1])
     x = (x[1:] + x[:-1]) / 2
     p.plot(x, y, label=f"{nteams} teams")
 p.xlim(10, 55)
@@ -50,11 +44,8 @@ p.legend()
 
 p.subplot(3, 2, 3)
 p.title("Average drinks per team")
-xmax = 0
 for i, nteams in enumerate(nteams_opts):
     y, x = np.histogram(ndrinksavg[i], bins=40)
-    imax = np.nonzero(y > ngames * THRESHOLD)[0][-1]
-    xmax = max(xmax, x[imax + 1])
     x = (x[1:] + x[:-1]) / 2
     p.plot(x, y, label=f"{nteams} teams")
 p.xlim(10, 45)
@@ -63,12 +54,9 @@ p.legend()
 
 p.subplot(3, 2, 4)
 p.title("Drinks for moral winner")
-xmax = 0
 for i, nteams in enumerate(nteams_opts):
     y = np.bincount(ndrinkstop[i])
     x = range(len(y))
-    imax = np.nonzero(y > ngames * THRESHOLD)[0][-1]
-    xmax = max(xmax, x[imax + 1])
     p.plot(x, y, label=f"{nteams} teams")
 p.xlim(10, 55)
 p.grid(True)
@@ -76,12 +64,9 @@ p.legend()
 
 p.subplot(3, 2, 5)
 p.title("Rounds in game")
-xmax = 0
 for i, nteams in enumerate(nteams_opts):
     y = np.bincount(nrounds[i])
     x = range(len(y))
-    imax = np.nonzero(y > ngames * THRESHOLD)[0][-1]
-    xmax = max(xmax, x[imax + 1])
     p.plot(x, y, label=f"{nteams} teams")
 p.xlim(15, 50)
 p.grid(True)
@@ -89,12 +74,9 @@ p.legend()
 
 p.subplot(3, 2, 6)
 p.title("Turns in game")
-xmax = 0
 for i, nteams in enumerate(nteams_opts):
     y = np.bincount(nturns[i])
     x = range(len(y))
-    imax = np.nonzero(y > ngames * THRESHOLD)[0][-1]
-    xmax = max(xmax, x[imax + 1])
     p.plot(x, y, label=f"{nteams} teams")
 p.xlim(60, 270)
 p.grid(True)
