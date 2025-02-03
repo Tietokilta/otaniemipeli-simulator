@@ -9,7 +9,7 @@ import numpy as np
 
 from game import game, squares
 
-nteams_opts = [1, 2, 4, 6, 8, 10, 12, 14, 16, 18, 100]
+nteams_opts = [2, 4] # [i for i in range(2, 100, 5)]
 ngames = 100000
 
 n = [[] for _ in nteams_opts]

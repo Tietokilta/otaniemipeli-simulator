@@ -1,11 +1,26 @@
 import sys
+import os
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
     from main import *
 
 
+try:
+    os.remove("fig1.pdf")
+    print("fig1.pdf removed")
+except FileNotFoundError:
+    print("fig1.pdf not found")
+try:
+    os.remove("fig2.pdf")
+    print("fig2.pdf removed")
+except FileNotFoundError:
+    print("fig2.pdf not found")
+
+
 THRESHOLD = 0.001
+
+p.figure(figsize=(20, 40))
 
 p.subplot(3, 2, 1)
 p.title("Average portions per team " + sys.argv[1])
@@ -85,10 +100,11 @@ p.xlim(0, xmax)
 p.grid(True)
 p.legend()
 
-p.subplots_adjust(left=0.05, right=0.95, bottom=0.05, top=0.95, wspace=0.1, hspace=0.2)
+p.subplots_adjust(left=0.05, right=0.95, bottom=0.05, top=0.95, wspace=0.2, hspace=0.2)
 
-p.show()
+p.savefig("fig1.pdf", dpi=100000, bbox_inches='tight', pad_inches=0.1)
 
+p.figure(figsize=(30, 100))
 p.subplot(3, 1, 1)
 p.title("Most visited squares " + sys.argv[1])
 
@@ -131,5 +147,6 @@ for i, nteams in enumerate(nteams_opts):
     p.plot(x, y, label=f"{nteams} teams")
 p.legend()
 
-p.subplots_adjust(left=0.05, right=0.95, bottom=0.05, top=0.95, wspace=0.1, hspace=0.3)
-p.show()
+p.subplots_adjust(left=0.05, right=0.95, bottom=0.05, top=0.95, wspace=0.2, hspace=0.2)
+p.savefig("fig2.pdf", dpi=100000, bbox_inches='tight', pad_inches=0.1)
+
