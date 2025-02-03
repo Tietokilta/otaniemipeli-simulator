@@ -1,11 +1,26 @@
 import sys
+import os
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
     from main import *
 
 
+try:
+    os.remove("fig1.pdf")
+    print("fig1.pdf removed")
+except FileNotFoundError:
+    print("fig1.pdf not found")
+try:
+    os.remove("fig2.pdf")
+    print("fig2.pdf removed")
+except FileNotFoundError:
+    print("fig2.pdf not found")
+
+
 THRESHOLD = 0.001
+
+p.figure(figsize=(20, 40))
 
 p.subplot(3, 2, 1)
 p.title("Average portions per team " + sys.argv[1])
@@ -85,10 +100,14 @@ p.xlim(60, 270)
 p.grid(True)
 p.legend()
 
-p.subplots_adjust(left=0.05, right=0.95, bottom=0.05, top=0.95, wspace=0.1, hspace=0.2)
+if "save" in sys.argv:
+    p.subplots_adjust(left=0.05, right=0.95, bottom=0.05, top=0.95, wspace=0.2, hspace=0.2)
+    p.savefig("fig1.pdf", dpi=100000, bbox_inches='tight', pad_inches=0.1)
+else:
+    p.subplots_adjust(left=0.05, right=0.95, bottom=0.05, top=0.95, wspace=0.1, hspace=0.2)
+    p.show()
 
-p.show()
-
+p.figure(figsize=(30, 100))
 p.subplot(3, 1, 1)
 p.title("Most visited squares " + sys.argv[1])
 
@@ -131,8 +150,12 @@ for i, nteams in enumerate(nteams_opts):
     p.plot(x, y, label=f"{nteams} teams")
 p.legend()
 
-p.subplots_adjust(left=0.05, right=0.95, bottom=0.05, top=0.95, wspace=0.1, hspace=0.3)
-p.show()
+if "save" in sys.argv:
+    p.subplots_adjust(left=0.05, right=0.95, bottom=0.05, top=0.95, wspace=0.2, hspace=0.2)
+    p.savefig("fig2.pdf", dpi=100000, bbox_inches='tight', pad_inches=0.1)
+else:
+    p.subplots_adjust(left=0.05, right=0.95, bottom=0.05, top=0.95, wspace=0.1, hspace=0.3)
+    p.show()
 
 fig, ax = p.subplots(layout="constrained")
 ax.set_title("Drinks by type " + sys.argv[1])
@@ -144,4 +167,5 @@ for i, nteams in enumerate(nteams_opts):
     ax.bar(x, y, bw, label=f"{nteams} teams")
 
 ax.set_xticks(np.arange(len(drinks)) + bw, list(drinks))
+
 p.show()

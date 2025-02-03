@@ -24,7 +24,7 @@ nsqdrinks = [[0 for _ in squares] for _ in nteams_opts]
 nsqportions = [[0 for _ in squares] for _ in nteams_opts]
 ndrinksbytype = [{d: 0 for d in drinks} for _ in nteams_opts]
 
-bsize = 128
+bsize = 512
 bmask = bsize - 1
 
 def simulate(i: int, ngames: int):
