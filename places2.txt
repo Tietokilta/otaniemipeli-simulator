@@ -3,13 +3,13 @@ bloc slime 1 refill
 jokeri
 alvari slime 1 refill
 olohuone tequila 1 refill
-database vodka 1 refill
+database
 prodeko thunder 1 refill
 sik kuulalaakeri 1 refill
-maarinsolmu beer 1 refill
-oikeustalo vodka 1 refill
+maarinsolmu slime 1 refill
+oikeustalo absinthe 1 refill
 lintutorni jallu 1 refill
-suo vodka 3 refill
+suo suohauta 1 refill
 as as-huikka 1 refill
 tuas slime 1 refill
 t-talo slime 1 refill
@@ -17,26 +17,27 @@ defa vodka 1 refill
 sähkölaitos energy 1 refill
 tik beer nvisits refill
 ik beer drinkroll_min() refill
-ossinlampi tequila 1 refill
+ossinlampi swamp-water 1 refill
 kvarkki slime 1 refill
 excu_tre bus refill
+miinusmaa beer 1 refill
 yths a12-denat 1 refill
-varasto vodka 2 refill
+varasto ykkonen refill
 taikametsä vodka 1 refill
 kappeli wine 1 refill
 rantsu beer 1 refill
 gorsu beer 1 refill
-smökki slime 1 refill
+smökki slime 1 beer 1 refill
 ossinsauna beer 1 refill
-ok20 beer 1 refill
+ok20 beer 1 slime 1 refill
 jmt1 fernet-branca 1 refill
 jmt3 beer 1 refill
 otaranta beer 1 refill
 urheilukenttä beer 3 refill
 täffä slime 1 refill
-dipoli slime 1 refill
+dipoli slime 1 beer 1 refill
 x-burger slime 1 refill
-otapas slime 1 refill
+otapas slime 1 beer 1 refill
 keto none throw_negative() refill
 fyssa vodka 1 refill
 inkubio vodka 1 refill
@@ -48,4 +49,4 @@ tupsula balju 1 refill
 kultainen_apina beer 1 refill
 mikontalo wine 1 refill
 etuparkki bus refill
-end
+end beer 1

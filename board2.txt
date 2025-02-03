@@ -23,7 +23,9 @@ ossinlampi
 1 normal
 kvarkki
 excu_tre >tampere
-3 normal
+1 normal
+miinusmaa
+1 normal
 yths
 2 normal
 varasto
