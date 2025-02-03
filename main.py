@@ -2,6 +2,7 @@ from random import randint
 from queue import Empty
 from concurrent.futures import ProcessPoolExecutor, Future
 import sys
+import time
 
 from matplotlib import pyplot as p
 import numpy as np
@@ -74,6 +75,7 @@ def simulate(i: int, ngames: int):
 
 if __name__ == "__main__":
     if sys.argv[3] == "m":
+        start = time.time()
         pool = ProcessPoolExecutor(len(nteams_opts))
         try:
             futs: list[Future] = []
@@ -96,6 +98,8 @@ if __name__ == "__main__":
                 nsqportions[res[0]] += res[9]
         finally:
             pool.shutdown(True, cancel_futures=True)
+            end = time.time()
+            print(f"\n{end - start:.2f} seconds")
     elif sys.argv[3] == "s":
         for i in range(len(nteams_opts)):
             res = simulate(i, None)
