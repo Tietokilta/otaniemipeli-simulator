@@ -49,5 +49,5 @@ teekkarisauna beer 3 slime 1 refill
 tupsula balju 1 refill
 kultainen_apina beer 1 refill
 mikontalo wine 1 refill
-etuparkki bus refill
+etuparkki bus 1 refill
 end beer 1

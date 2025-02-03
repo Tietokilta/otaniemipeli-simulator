@@ -1,8 +1,8 @@
 3a beer 1 refill
 alvari slime 1 refill
 aski as-huikka 1 refill
-excu_tre bus refill
-etuparkki bus refill
+excu_tre bus 1 refill
+etuparkki bus 1 refill
 fyssa slime 1 refill
 gorsu beer 1 refill
 jälkipeli beer 1 refill

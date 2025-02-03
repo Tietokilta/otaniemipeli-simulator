@@ -74,7 +74,7 @@ def simulate(i: int, ngames: int):
 
 if __name__ == "__main__":
     if sys.argv[3] == "m":
-        pool = ProcessPoolExecutor(len(nteams_opts))
+        pool = ProcessPoolExecutor()
         try:
             futs: list[Future] = []
             for i in range(len(nteams_opts)):

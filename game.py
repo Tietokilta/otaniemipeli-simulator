@@ -76,12 +76,12 @@ for l in open(place_file):
     name, *bits = l.split(" ")
     assert name not in sqtypes
     drinkfuncs = []
-    refill = False
+    will_refill = False
     while bits:
         bit = bits.pop(0)
         match bit:
             case "refill":
-                refill = True
+                will_refill = True
             case _:
                 drinkfuncs.append(
                     eval(f"lambda drink: lambda nvisits: [drink] * {bits.pop(0)}")(
@@ -96,7 +96,7 @@ for l in open(place_file):
                 [],
             )
         )(drinkfuncs),
-        refill,
+        will_refill,
     )
 
 
