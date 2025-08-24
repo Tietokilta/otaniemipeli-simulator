@@ -1,9 +1,12 @@
-from dataclasses import dataclass, field, replace
+from dataclasses import replace
 from random import randint, choice
 from collections.abc import Callable
-from functools import cached_property
 from statistics import mean
 import sys
+
+import requests
+
+from niemipeli_types import *
 
 
 def d6():
@@ -23,55 +26,28 @@ def newroll_min() -> (int, bool):
     return roll, is_double
 
 
-@dataclass
-class Drink:
-    name: str
-    abv: float
-    vol: float
+drinks: dict[str, DrinkIngredients] = {}
+games: dict[int, GameInfo] = {}
+places: dict[int, BoardPlaces] = {}
 
-    @cached_property
-    def ethanol(self):
-        return self.abv * 0.01 * self.vol
+drinks_result: DrinksIngredients = requests.get("http://localhost:2568/api/v1/drinks/ingredients").json()
+for di in drinks_result.drink_ingredients:
+    drinks[di.drink.name] = di
+print("Loaded", len(drinks), "drinks")
+
+boards_result: Boards = requests.get("http://localhost:2568/api/v1/boards").json()
+print("Loaded", len(boards_result.boards), "boards")
+for b in boards_result.boards:
+    places_result: BoardPlaces = requests.get(f"http://localhost:2568/api/v1/boards/places/{b.id}").json()
+    places[b.id] = places_result
+    print(f"Loaded {len(places_result.places)} places for board {b.name}")
 
 
-drinks: dict[str, Drink] = {}
-
-
-for l in open("drinks.txt"):
-    l = l.strip()
-    if not l or l.startswith("//"):
-        continue
-    name, content = l.split(" ")
-    bits = content.split(",")
-    alc_total = 0
-    vol_total = 0
-    while bits:
-        abv, vol, carb = bits[:3]
-        bits = bits[3:]
-        abv = float(abv.removesuffix("%"))
-        vol = float(vol)
-        vol_total += vol
-        alc_total += abv * 0.01 * vol
-    vol = vol_total
-    abv = alc_total / vol_total if vol_total else 0.0
-    drinks[name] = Drink(name, abv, vol)
+exit(1)
+drinks[name] = Drink(name, abv, vol)
 
 
 PORTION = drinks["beer"].ethanol
-
-
-@dataclass
-class Square:
-    name: str
-    drinks: Callable[[int], list[Drink]] = field(default_factory=list)
-    refill: bool = False
-    teleport: str | None = None
-
-
-def get_drink(name: str):
-    if "/" in name:
-        name = choice(name.split("/"))
-    return drinks[name]
 
 
 sqtypes: dict[str, Square] = {}

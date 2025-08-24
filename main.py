@@ -9,8 +9,8 @@ import numpy as np
 
 from game import game, squares, drinks
 
-nteams_opts = [4,5,6,7,8]
-ngames = 100000
+nteams_opts = [4, 18, 20]
+ngames = 1000000
 
 n = [[] for _ in nteams_opts]
 ndrinksavg = [[] for _ in nteams_opts]
@@ -108,7 +108,7 @@ if __name__ == "__main__":
             print(f"\n{end - start:.2f} seconds")
     elif sys.argv[3] == "s":
         for i in range(len(nteams_opts)):
-            res = simulate(i, None)
+            res = simulate(i, ngames)
             ndrinksavg[res[0]] = res[1]
             nportionsavg[res[0]] = res[2]
             ndrinkstop[res[0]] = res[3]
